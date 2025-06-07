@@ -1,5 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build-env
 
+ARG NUGET_USER
+ARG NUGET_PASSWORD
+
+RUN dotnet nuget add source "https://nuget.pkg.github.com/clcl0n/index.json" --name Github --username $NUGET_USER --password $NUGET_PASSWORD --store-password-in-clear-text
+
 WORKDIR /App
 
 # Copy 
@@ -17,5 +22,8 @@ WORKDIR /App
 
 COPY --from=build-env /App/Cms.ImageService/src/Api/src/out .
 
-ENTRYPOINT ["dotnet", "Cms.ImageService.Api.dll"]
+RUN apk update
+RUN apk add bash libwebp libwebp-tools
+RUN export PATH="/usr/bin/cwebp:$PATH"
 
+ENTRYPOINT ["dotnet", "Cms.ImageService.Api.dll"]

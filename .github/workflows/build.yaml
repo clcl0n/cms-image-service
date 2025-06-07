@@ -1,0 +1,14 @@
+name: Build Image using Containerfile
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish_nuget:
+    uses: clcl0n/cms-workflows/.github/workflows/publish-image.yaml@main
+    with:
+      image_name: cms-image-service
+      containerfile_path: api.Dockerfile
+      tags: latest ${{ github.sha }}
