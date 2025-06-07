@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\src\Cms.ImageService.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\src\Cms.ImageService.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

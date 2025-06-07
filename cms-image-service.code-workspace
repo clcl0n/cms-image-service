@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"name": "Cms.ImageService",
+			"path": "."
+		},
+	],
+	"settings": {
+		"editor.formatOnSave": true,
+		"explorer.sortOrder": "type",
+		"[csharp]": {
+			"editor.defaultFormatter": "csharpier.csharpier-vscode"
+		},
+		"[xml]": {
+			"editor.defaultFormatter": "csharpier.csharpier-vscode"
+		}
+	}
+}
